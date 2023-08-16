@@ -1,0 +1,174 @@
+if game.PlaceId == 13036939998 then
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "Rock Mine Simulator | Tung Hub", HidePremium = false, IntroText = "Tung Hub", SaveConfig = true, ConfigFolder = "TungConfig"})
+    
+ --getGenv
+ getgenv().TPPlace = "string"
+
+      --function
+  
+    function autoTap()
+         while _G.autoTap  == true do
+    
+    local args = {
+        [1] = workspace.Blocks.Obsidian
+    }
+    game:GetService("ReplicatedStorage").Remotes.Events.Damage:FireServer(unpack(args))
+    wait(.00000000000000000000000000000000001)
+        
+    end
+    end
+
+
+
+ 
+
+
+    function Teleport(teleportPlace)
+        local player = game.Players.LocalPlayer
+        player.Character.HumanoidRootPart.CFrame = teleportPlace
+    end
+
+
+
+    --Value
+     _G.autoTap = true
+
+
+
+
+    -- Tab
+      local MainTab = Window:MakeTab({
+        Name = "Main 🏠",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+    
+
+    
+     --Toggles
+    MainTab:AddToggle({
+        Name = "Auto Farm",
+        Default = false,
+        Callback = function(Value)
+              _G.autoTap = Value
+            autoTap()
+          end    
+    })
+
+    
+    
+
+    MainTab:AddToggle({
+        Name = "Auto hatch",
+        Default = false,
+        Callback = function(Value)
+            _G.egg = Value
+            while _G.egg and wait() do
+                local args = {
+                    [1] = "Beginner Egg",
+                    [2] = 1,
+                    [3] = true
+                }
+                
+                game:GetService("ReplicatedStorage").Remotes.Events.PurchaseEgg:FireServer(unpack(args))
+                wait(0)
+            end
+        end
+    })
+    
+
+ -- Dropdown
+    MainTab:AddDropdown({
+        Name = "Select Area",
+        Default = "None",
+        Options = {"Plains", "Jupiter", "Space", "Savanna", "Jungle", "Moon", "Neptune", "Mars", "Tundra", "Musroom", "Venus", "Ocean", "Medieval", "Desert", "Candy", "Beach", "Enchanted Forest", "FairyLands", "Atlantis", "Heaven", "Hell", "LushCave", "CrystalCave", "Frogger", "Invader", "Tetris", "Qbert", "Pacman", "WildWest", "AncientEgypt", "Future", "Stoneage", "JussrasicAge", "MagmaCave", "GlowCave", "IceCave"},
+        Callback = function(Value)
+            getgenv().TPPlace = Value
+
+        end
+    })
+
+
+    MainTab:AddButton({
+        Name = "Teleport",
+        Callback = function()
+        if getgenv().TTPlace == "Plains" then
+            Teleport(game:GetService("Workspace").Zones.Plains.MiningPoints.PointA.CFrame)
+        elseif getgenv().TTPlace == "Plains" then
+                Teleport(game:GetService("Workspace").Zones.Plains.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Jupiter" then
+            Teleport(game:GetService("Workspace").Zones.Jupiter.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Space" then
+            Teleport(game:GetService("Workspace").Zones.Space.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Savanna" then
+            Teleport(game:GetService("Workspace").Zones.Savanna.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Moon" then
+            Teleport(game:GetService("Workspace").Zones.Moon.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Mars" then
+            Teleport(game:GetService("Workspace").Zones.Mars.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Neptune" then
+            Teleport(game:GetService("Workspace").Zones.Neptune.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Tundra" then
+            Teleport(game:GetService("Workspace").Zones.Tundra.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Musroom" then
+            Teleport(game:GetService("Workspace").Zones.Mushroom.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Venus" then
+            Teleport(game:GetService("Workspace").Zones.Venus.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Ocean" then
+            Teleport(game:GetService("Workspace").Zones.Ocean.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Medieval" then
+            Teleport(game:GetService("Workspace").Zones.Medieval.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Beach" then
+            Teleport(game:GetService("Workspace").Zones.Beach.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Desert" then
+            Teleport(game:GetService("Workspace").Zones.Desert.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Candy" then
+            Teleport(game:GetService("Workspace").Zones.Candy.MiningPoints.PointA.CFrame)
+        elseif getgenv().TPPlace == "Tetris" then
+            Teleport(game:GetService("Workspace").Zones.Tetris.MiningPoints.PointA.CFrame)      
+        elseif getgenv().TPPlace == "Invader" then
+            Teleport(game:GetService("Workspace").Zones.Invader.MiningPoints.PointA.CFrame)   
+        elseif getgenv().TPPlace == "WildWest" then
+            Teleport(game:GetService("Workspace").Zones.WildWest.MiningPoints.PointA.CFrame)     
+        elseif getgenv().TPPlace == "Qbert" then
+            Teleport(game:GetService("Workspace").Zones.Qbert.MiningPoints.PointA.CFrame)    
+        elseif getgenv().TPPlace == "Pacman" then
+            Teleport(game:GetService("Workspace").Zones.Pacman.MiningPoints.PointA.CFrame)   
+        elseif getgenv().TPPlace == "Frogger" then
+            Teleport(game:GetService("Workspace").Zones.Frogger.MiningPoints.PointA.CFrame)          
+        elseif getgenv().TPPlace == "MagmaCave" then
+            Teleport(game:GetService("Workspace").Zones.MagmaCave.MiningPoints.PointA.CFrame)          
+        elseif getgenv().TPPlace == "JurassicAge" then
+            Teleport(game:GetService("Workspace").Zones.JurassicAge.MiningPoints.PointA.CFrame)          
+        elseif getgenv().TPPlace == "Future" then
+            Teleport(game:GetService("Workspace").Zones.Future.MiningPoints.PointA.CFrame)          
+        elseif getgenv().TPPlace == "StoneAge" then
+            Teleport(game:GetService("Workspace").Zones.StoneAge.MiningPoints.PointA.CFrame)         
+        elseif getgenv().TPPlace == "AncientEgypt" then
+            Teleport(game:GetService("Workspace").Zones.AncientEgypt.MiningPoints.PointA.CFrame)   
+        elseif getgenv().TPPlace == "CrystalCave" then
+            Teleport(game:GetService("Workspace").Zones.CrystalCave.MiningPoints.PointA.CFrame)   
+        elseif getgenv().TPPlace == "IceCave" then
+            Teleport(game:GetService("Workspace").Zones.IceCave.MiningPoints.PointA.CFrame)       
+        elseif getgenv().TPPlace == "FairyLands" then
+            Teleport(game:GetService("Workspace").Zones.FairyLands.MiningPoints.PointA.CFrame)       
+        elseif getgenv().TPPlace == "GlowCave" then
+            Teleport(game:GetService("Workspace").Zones.GlowCave.MiningPoints.PointA.CFrame)        
+        elseif getgenv().TPPlace == "LushCave" then
+            Teleport(game:GetService("Workspace").Zones.LushCave.MiningPoints.PointA.CFrame)        
+        elseif getgenv().TPPlace == "Heaven" then
+            Teleport(game:GetService("Workspace").Zones.Heaven.MiningPoints.PointA.CFrame)        
+        elseif getgenv().TPPlace == "Hell" then
+            Teleport(game:GetService("Workspace").Zones.Hell.MiningPoints.PointA.CFrame)    
+        elseif getgenv().TPPlace == "Atlantis" then
+            Teleport(game:GetService("Workspace").Zones.Atlantis.MiningPoints.PointA.CFrame)    
+        elseif getgenv().TPPlace == "EnchantedForest" then
+            Teleport(game:GetService("Workspace").Zones.EnchantedForest.MiningPoints.PointA.CFrame)  
+        elseif getgenv().TPPlace == "Jungle" then
+            Teleport(game:GetService("Workspace").Zones.Jungle.MiningPoints.PointA.CFrame)          
+        end          
+        end        
+})
+
+end
